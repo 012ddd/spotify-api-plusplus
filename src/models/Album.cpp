@@ -10,7 +10,6 @@ Album::Album(nlohmann::json albumJson) : AlbumSimple::AlbumSimple(albumJson)
     for(std::string genre : albumJson["genres"])
         genres.push_back(genre);
     popularity = albumJson["popularity"];
-    releaseDate = albumJson["release_date"];
     releaseDatePrecision = albumJson["release_date_precision"];
     tracks = Pager<TrackSimple>(albumJson["tracks"]);
 }
@@ -40,11 +39,6 @@ std::string Album::GetLabel() const
 int Album::GetPopularity() const
 {
     return popularity;
-}
-
-std::string Album::GetReleaseDate() const
-{
-    return releaseDate;
 }
 
 std::string Album::GetReleaseDatePrecision() const

@@ -2,6 +2,7 @@
 #define SPOTIFY_PLUSPLUS_SPOTIFYSERVICE_H
 
 #include <string>
+#include <fstream>
 #include "models/Track.h"
 #include "models/AudioFeatures.h"
 #include "models/Playlist.h"
@@ -22,6 +23,8 @@ class SpotifyAPI
 public:
     SpotifyAPI();
 
+    void ConfigureAPIConnection();
+    
     void setAuthToken(std::string authToken);
 
     std::shared_ptr<Album> GetAlbum(std::string albumId, options_t options = options_t());
@@ -162,7 +165,18 @@ public:
 
     void ToggleShuffle(bool state, options_t options = options_t());
 
+    void AddItemToPlaybackQueue(std::string trackId, options_t options = options_t());
+
 private:
+    static std::string GetStringFromFile(std::string fileName)
+    {
+        std::stringstream buffer;
+        std::ifstream file(fileName);
+        buffer << file.rdbuf();
+        file.close();
+        return buffer.str();
+    }
+
     std::string authToken;
 };
 

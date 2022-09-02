@@ -14,6 +14,9 @@ class Artist : public ArtistSimple
 {
 public:
     Artist(nlohmann::json artistJson);
+    operator std::shared_ptr<Artist>() {
+        return std::make_shared<Artist>(*this);
+    }
 
     std::shared_ptr<Followers> GetFollowers() const;
     std::vector<std::string> GetGenres() const;

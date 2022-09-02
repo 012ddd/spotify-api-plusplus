@@ -25,7 +25,6 @@ public:
     std::vector<std::string> GetGenres() const;
     std::string GetLabel() const;
     int GetPopularity() const;
-    std::string GetReleaseDate() const;
     std::string GetReleaseDatePrecision() const;
     Pager<TrackSimple> GetTracks() const;
 
@@ -36,7 +35,6 @@ private:
     std::vector<std::string> genres;
     std::string label;
     int popularity;
-    std::string releaseDate;
     std::string releaseDatePrecision;
     Pager<TrackSimple> tracks;
 

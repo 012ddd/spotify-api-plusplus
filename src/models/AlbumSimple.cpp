@@ -14,6 +14,7 @@ AlbumSimple::AlbumSimple(nlohmann::json albumJson)
     for(nlohmann::json json : albumJson["images"])
         images.push_back(std::shared_ptr<Image>(new Image(json)));
     name = albumJson["name"];
+    releaseDate = albumJson["release_date"];
     type = albumJson["type"];
     uri = albumJson["uri"];
 }
@@ -66,4 +67,9 @@ std::string AlbumSimple::GetType() const
 std::string AlbumSimple::GetUri() const
 {
     return uri;
+}
+
+std::string AlbumSimple::GetReleaseDate() const
+{
+    return releaseDate;
 }

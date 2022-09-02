@@ -21,12 +21,12 @@ public:
     int GetTotal() const;
 
 private:
-    std::string href;
-    std::vector<T> items;
-    int limit;
-    std::string next;
-    std::shared_ptr<Cursor> cursors;
-    int total;
+    std::string href{};
+    std::vector<T> items{};
+    int limit{};
+    std::string next{};
+    std::shared_ptr<Cursor> cursors{};
+    int total{};
 };
 
 template <typename T> CursorPager<T>::CursorPager() = default;

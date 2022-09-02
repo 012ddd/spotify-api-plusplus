@@ -20,13 +20,13 @@ public:
     int GetTotal() const;
 
 private:
-    std::string href;
-    std::vector<T> items;
-    int limit;
-    std::string next;
-    int offset;
-    std::string previous;
-    int total;
+    std::string href{};
+    std::vector<T> items{};
+    int limit{};
+    std::string next{};
+    int offset{};
+    std::string previous{};
+    int total{};
 };
 
 template <typename T> Pager<T>::Pager() = default;

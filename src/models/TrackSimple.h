@@ -13,6 +13,9 @@ class TrackSimple
 {
 public:
     TrackSimple(nlohmann::json trackJson);
+    operator std::shared_ptr<TrackSimple>() {
+        return std::make_shared<TrackSimple>(*this);
+    }
 
     std::vector<std::shared_ptr<ArtistSimple>> GetArtists() const;
     std::vector<std::string> GetAvailableMarkets() const;

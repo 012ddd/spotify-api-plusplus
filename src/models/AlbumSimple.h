@@ -15,6 +15,9 @@ class AlbumSimple
 {
 public:
     AlbumSimple(nlohmann::json albumJson);
+    operator std::shared_ptr<AlbumSimple>() {
+        return std::make_shared<AlbumSimple>(*this);
+    }
 
     std::string GetAlbumType() const;
     std::vector<std::shared_ptr<ArtistSimple>> GetArtists() const;
@@ -24,6 +27,7 @@ public:
     std::string GetId() const;
     std::vector<std::shared_ptr<Image>> GetImages() const;
     std::string GetName() const;
+    std::string GetReleaseDate() const;
     std::string GetType() const;
     std::string GetUri() const;
 
@@ -36,6 +40,7 @@ private:
     std::string id;
     std::vector<std::shared_ptr<Image>> images;
     std::string name;
+    std::string releaseDate;
     std::string type;
     std::string uri;
 };
